@@ -1,13 +1,15 @@
 var p = 1;
 var inpt;
 function setup() {
+  
+  var title = createElement('h1' , 'lp norm visualizer');
   createCanvas(300, 300);
 
   opt = createDiv("Options :");
-  slider = createSlider(0, 700, 50);
+  slider = createSlider(0, 1000, 50);
   txt = createDiv(slider.value());
   inpt = createInput();
-  par = createP("Use the slider to select the value of p. ");
+  par = createP("Use the slider to select the value of p. (Between 0 and 10 ) <br> You can also input custom values in the text box.");
   slider.changed(emptyInpt);
 }
 function emptyInpt(){
@@ -37,7 +39,7 @@ function draw() {
   for (var i = 0; i < 200; i++ ) {
     for (var j =i; j< 200; j++ ) {
       var clpn = computeLpNorm (i, j, p); 
-      if ( clpn <= 102 && clpn >= 80) {
+      if ( clpn <= 102 && clpn >= 90) {
         ellipse(i, j, 2, 2);
         ellipse(i, -j, 2, 2); 
         ellipse(-i, -j, 2, 2); 
